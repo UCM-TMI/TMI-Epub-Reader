@@ -1,4 +1,7 @@
  $(function() {
-	 $( "#mypanel" ).panel( "open" );
+	 $("#option_btn").on("click", function(){
+		 $( "#mypanel" ).panel( "open" );
+	 });
+	
     	
     });
