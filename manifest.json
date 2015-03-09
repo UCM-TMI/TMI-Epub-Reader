@@ -9,7 +9,7 @@
   },
   "app": {
     "background": {
-      "scripts": ["main.js"]
+      "scripts": ["main.js","jquery-1.11.2.min.js","jquery-ui/jquery-ui.min.js","js/myjs.js"]
     }
   }
 }
