@@ -1,35 +1,70 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-	<title>My Page</title> 
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-	<link rel="stylesheet" href="styles/jquery.mobile-1.4.5.min.css" />
-	<script src="jquery-1.11.2.min.js"></script>
-	<script src="jquery.mobile-1.4.5.min.js"></script>
-	<script src="js/jszip.min.js"></script>
-	<script src="js/myjs.js"></script>
-</head> 
-<body> 
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles/jquery.mobile-1.4.5.min.css" />
+<link rel="stylesheet" href="styles/main.css" />
+<script src="jquery-1.11.2.min.js"></script>
+<script src="jquery.mobile-1.4.5.min.js"></script>
+<script src="js/jszip.min.js"></script>
+<script src="js/EpGUI.js"></script>
+</head>
+<body>
 
-<div data-role="page">
+	<div data-role="page">
 
-	<div data-role="header">
-	<h1>Page Title</h1>
-    	<a id="option_btn" href="#" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear">Opciones</a>
+		<div data-role="header" data-position="fixed" >
+			<a href="#" id="nav_btn">Detalles</a>
+			<h1>*Titulo del libro*</h1>
+			<a href="#" id="option_btn" data-icon="gear" >Opciones</a>
+		</div>
+
+		<div data-role="panel" id="opciones" data-position="right"
+			data-display="push">
+			<!-- panel content goes here -->
+			<h1>menu de opciones</h1>
+		</div>
+		<!-- /panel -->
+
+		<div data-role="panel" id="navegador" data-position="left"
+			data-display="push">
+			<!-- panel content goes here -->
+			<h1>detalles del libro</h1>
+		</div>
+		<!-- /panel -->
+
+		<div data-role="content" id="cuerpo">
+			<div id="notas" class="tabs" style="paddin: 5%; margin: 0;">
+				notas</div>
+
+			<div id="libros" class="tabs">libros</div>
+
+			<div id="musica" class="tabs">musica</div>
+
+			<div id="contenido" class="tabs">
+				<p id="result">contenido</p>
+				<input type="file" id="file" name="file" webkitdirectory directory
+					multiple />
+			</div>
+
+		</div>
+		<!-- /content -->
+
+		<div data-role="footer" data-position="fixed" data-fullscreen="true">
+			<div data-role="navbar">
+				<ul>
+					<li><a id="libros_btn" href="#"  class="ui-btn-active ui-state-persist">Libros</a></li>
+					<li><a id="musica_btn" href="#">Musica</a></li>
+					<li><a id="notas_btn" href="#">Notas</a></li>
+				</ul>
+			</div>
+			<!-- /navbar -->
+		</div>
+
+
 	</div>
-
-    <div data-role="panel" id="mypanel" data-position="right" data-display="push">
-        <!-- panel content goes here -->
-        <h1>Contenido</h1>
-    </div><!-- /panel -->
-
-	<div data-role="content" >	
-		<p id="result">Hello world</p>
-    <input type="file" id="file" name="file" webkitdirectory directory multiple/>	
-	</div><!-- /content -->
-
-
-</div><!-- /page -->
+	<!-- /page -->
 
 </body>
 </html>

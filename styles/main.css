@@ -1,42 +1,24 @@
-html, body {
-	height: 100%;
-	padding: 0;
-	margin: 0;
+#libros{
+	background-color: red;
+	//display:none;
 }
 
-body {
-	
+#musica{
+	background-color: blue;
+	display:none;
 }
 
-h1 {
-	position: absolute;
-	bottom: 20px;
-	text-align: center;
-	width: 100%;
-	line-height: 120%;
-	font-family: Arial, sans-serif;
-	color: rgb(66, 66, 66);
-	letter-spacing: -0.05em;
+#notas{
+	background-color: green;
+	display:none;	
 }
 
-#barra {
-	float: left;
-	padding: 15px 0;
-	min-width: 100%;
-	background-color: black;
+#contenido{
+	background-color: blue;
+	display:none;	
 }
-
-#lateralI{
-	
-	
-}
-
-#lateralD{
-	
-	
-}
-
 
 #cuerpo {
-	
+	padding: 0;
+	margin: 0;
 }
