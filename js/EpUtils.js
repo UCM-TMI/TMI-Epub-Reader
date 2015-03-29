@@ -4,6 +4,7 @@ function Epub () {
     this.titulo = "<Titulo>";
     this.cover = "portada_no_disponible.png";
     this.ruta = "<ruta>";
+    this.archivo = "<Vacio>";
     this.crearItem = function(padre){
     	$('<div/>', {
     	    title: this.titulo,
