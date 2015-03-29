@@ -8,13 +8,15 @@
 <script src="jquery-1.11.2.min.js"></script>
 <script src="jquery.mobile-1.4.5.min.js"></script>
 <script src="js/jszip.min.js"></script>
+<script src="js/EpUtils.js"></script>
+<script src="js/EpCore.js"></script>
 <script src="js/EpGUI.js"></script>
 </head>
 <body>
 
 	<div data-role="page">
 
-		<div data-role="header" data-position="fixed" >
+		<div data-role="header" data-position="fixed" data-tap-toggle="false">
 			<a href="#" id="nav_btn">Detalles</a>
 			<h1>*Titulo del libro*</h1>
 			<a href="#" id="option_btn" data-icon="gear" >Opciones</a>
@@ -38,20 +40,24 @@
 			<div id="notas" class="tabs" style="paddin: 5%; margin: 0;">
 				notas</div>
 
-			<div id="libros" class="tabs">libros</div>
+			<div id="libros" class="tabs" ><h3>Libros</h3>
+				<input type="file" id="file" name="file" webkitdirectory directory
+					multiple />
+					<div id="listadoLibros">
+					</div>
+			</div>
 
 			<div id="musica" class="tabs">musica</div>
 
 			<div id="contenido" class="tabs">
 				<p id="result">contenido</p>
-				<input type="file" id="file" name="file" webkitdirectory directory
-					multiple />
+
 			</div>
 
 		</div>
 		<!-- /content -->
 
-		<div data-role="footer" data-position="fixed" data-fullscreen="true">
+		<div data-role="footer" data-position="fixed" data-fullscreen="true" data-tap-toggle="false">
 			<div data-role="navbar">
 				<ul>
 					<li><a id="libros_btn" href="#"  class="ui-btn-active ui-state-persist">Libros</a></li>

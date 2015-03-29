@@ -1,21 +1,44 @@
-#libros{
-	background-color: red;
-	//display:none;
+html {
+	height: 100%;
 }
 
-#musica{
+body {
+	min-height: 100%;
+}
+
+.libroItem {
+	margin-left: 25px;
+	width: 120px;
+	height: 170px;
+	display: inline-block;
+	cursor: pointer;
+	cursor: hand;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	-webkit-box-shadow: 0px 0px 28px -5px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 0px 28px -5px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 0px 28px -5px rgba(0, 0, 0, 0.75);
+}
+
+#libros {
+	min-height: 100%;
+	padding: 10px;
+	text-align: center;
+}
+
+#musica {
 	background-color: blue;
-	display:none;
+	display: none;
 }
 
-#notas{
+#notas {
 	background-color: green;
-	display:none;	
+	display: none;
 }
 
-#contenido{
+#contenido {
 	background-color: blue;
-	display:none;	
+	display: none;
 }
 
 #cuerpo {

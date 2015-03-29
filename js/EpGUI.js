@@ -1,6 +1,5 @@
 $(function(){
-	
-	
+
 	
 	$("#option_btn").on("click", function(){
 		$("#opciones").panel( "toggle" );	
@@ -23,13 +22,17 @@ $(function(){
 		$("#notas").toggle();	
 	});
 	
-	
+	 $("#file").on("change", function(evt) {
+		   var files = evt.target.files;
+		    for (var i = 0, f; f = files[i]; i++) {
+		    	core.agregarEpub(f);
+		    }
+		    for ( var qw in core.listadoEpub ){
+		    	qw.crearItem($("#listadoLibros"));
+		    }
+		 
+	 });
 	//$("#").panel( "toggle" );
-	
-	
-	
-	
-	
-	
+
 	
 });
