@@ -45,6 +45,10 @@ function EpElemento(){
 	this.id = "<SinID>;"
 }
 
+function EpCapitulo(){
+	this.titulo = 
+}
+
 // Funciones
 function encode(input) {
 	var keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
