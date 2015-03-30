@@ -27,10 +27,6 @@ $(function(){
 		    for (var i = 0, f; f = files[i]; i++) {
 		    	core.agregarEpub(f);
 		    }
-		    for ( var qw in core.listadoEpub ){
-		    	qw.crearItem($("#listadoLibros"));
-		    }
-		 
 	 });
 	//$("#").panel( "toggle" );
 
