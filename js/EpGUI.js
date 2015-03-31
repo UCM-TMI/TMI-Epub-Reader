@@ -10,8 +10,15 @@ $(function(){
 	});
 	
 	$("#libros_btn").on("click", function(){
-		$(".tabs").hide();
-		$("#libros").toggle();	
+		if(mostrandoContenido){
+			$(".tabs").hide();
+			$("#libro_contenido").toggle();
+		}else{
+			$(".tabs").hide();
+			$("#libros").toggle();	
+		}
+		
+		
 	});
 	$("#musica_btn").on("click", function(){
 		$(".tabs").hide();
@@ -32,3 +39,12 @@ $(function(){
 
 	
 });
+
+var mostrandoContenido = false;
+
+function mostrarContenidoLibro(){
+	mostrandoContenido = true;
+	$(".tabs").hide();
+	$("#libro_contenido").toggle();
+	 
+}
