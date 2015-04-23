@@ -8,6 +8,8 @@ $(function(){
 	$("#nav_btn").on("click", function(){
 		$("#navegador").panel( "toggle" );	
 	});
+
+
 	
 	$("#libros_btn").on("click", function(){
 		if(mostrandoContenido){
@@ -21,9 +23,18 @@ $(function(){
 		
 	});
 	$("#musica_btn").on("click", function(){
+
+		if(mostrandoMusica){
+			$(".tabs").hide();
+		//	$("#libro_contenido").toggle();
+		}else{
+			$(".tabs").hide();
+		//	$("#libros").toggle();	
+		}
 		$(".tabs").hide();
 		$("#musica").toggle();	
 	});
+
 	$("#notas_btn").on("click", function(){
 		$(".tabs").hide();
 		$("#notas").toggle();	
@@ -41,10 +52,14 @@ $(function(){
 });
 
 var mostrandoContenido = false;
+var mostrandoMusica = false;
 
 function mostrarContenidoLibro(){
 	mostrandoContenido = true;
 	$(".tabs").hide();
+	$(".botonAt").show();
+	
+
 	$("#libro_contenido").toggle();
 	 
 }

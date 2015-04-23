@@ -38,7 +38,9 @@ body {
 }
 
 #musica {
-	background-color: blue;
+	min-height: 100%;
+	padding: 10px;
+	text-align: center;
 	display: none;
 }
 
@@ -59,4 +61,8 @@ body {
 #cuerpo {
 	padding: 0;
 	margin: 0;
+}
+
+.botonAt{
+	display:none;
 }
