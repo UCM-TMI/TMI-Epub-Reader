@@ -18,6 +18,7 @@
 
 		<div data-role="header" data-position="fixed" data-tap-toggle="false">
 			<a href="#" id="nav_btn">Detalles</a>
+			<a href="#" class="botonAt" style="display:none;" >ATRAS</a>
 				<span class="ui-title" >TMIEpub</span>
 			<a href="#" id="option_btn" data-icon="gear" >Opciones</a>
 		</div>
@@ -34,6 +35,8 @@
 			<!-- panel content goes here -->
 			<h1>detalles del libro</h1>
 		</div>
+
+		
 		<!-- /panel -->
 
 		<div data-role="content" id="cuerpo">
@@ -49,7 +52,11 @@
 					</div>
 			</div>
 
-			<div id="musica" class="tabs">musica</div>
+			<div id="musica" class="tabs"><h3>musica</h3>
+				<input type="file" id="file" name="file" webkitdirectory directory/>
+					<div id="listadoMusicas">
+					</div>
+			</div>
 
 			<div id="contenido" class="tabs">
 				<p id="result">contenido</p>
