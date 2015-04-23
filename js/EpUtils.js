@@ -23,7 +23,7 @@ function Epub() {
 			width : "120px",
 			height : "170px"
 		})).click(function() {
-			cargarEpub(variable)
+			$("#libro_contenido").html($("<p></p>").append(cargarEpub(variable)))
 		}).appendTo(padre);
 	};
 	this.cargarCover = function() {
@@ -99,60 +99,38 @@ function generarEpub(binario) {
 	epub.ruta = binario;
 	try {
 		var zip = new JSZip(binario.target.result);
-		$
-				.each(
-						zip.files,
-						function(index, zipEntry) {
-							// Se lee la cabezera del
-							if (zipEntry.name == "META-INF/container.xml") {
-										xmlDoc = $.parseXML(zipEntry.asText()),
-										$xml = $(xmlDoc),
-										$root = $xml
-												.find("rootfile[media-type='application/oebps-package+xml']");
-								epub.opf = $root.attr("full-path");
-								epub.relativePath = $root.attr("full-path")
-										.replace(/[^\/]*$/, "");
-							}
-							// Cargamos el contenido del opf
-							if (zipEntry.name.indexOf(epub.opf) > -1) {
-								xmlDoc = $.parseXML(zipEntry.asText()),
-										$xml = $(xmlDoc), $title = $xml
-												.find("title");
-								epub.coverPath = $xml
-										.find("meta[name='cover']").attr(
-												"content");
+		xmlDoc = $.parseXML(zip.files["META-INF/container.xml"].asText()),
+		$xml = $(xmlDoc),
+		$root = $xml.find("rootfile[media-type='application/oebps-package+xml']");
+		epub.opf = $root.attr("full-path");
+		epub.relativePath = $root.attr("full-path").replace(/[^\/]*$/, "");
+		
+		xmlDoc = $.parseXML(zip.files[epub.opf].asText()),
+		$xml = $(xmlDoc), $title = $xml.find("title");
+		epub.coverPath = $xml.find("meta[name='cover']").attr("content");
 
-								// Se cargan todos los elementos del Epub
-								$xml.find("manifest").children('item').each(
-										function() {
-											var elem = new EpElemento();
-											elem.ruta = $(this).attr("href");
-											elem.prop = $(this).attr(
-													"properties");
-											elem.tipo = $(this).attr(
-													"media-type");
-											elem.id = $(this).attr("id");
-											epub.elementos[elem.id] = elem;
-										});
+		// Se cargan todos los elementos del Epub
+		$xml.find("manifest").children('item').each(
+				function() {
+					var elem = new EpElemento();
+					elem.ruta = $(this).attr("href");
+					elem.prop = $(this).attr(
+							"properties");
+					elem.tipo = $(this).attr(
+							"media-type");
+					elem.id = $(this).attr("id");
+					epub.elementos[elem.id] = elem;
+				});
 
-								// Se lee el orden de carga
-								$xml
-										.find("spine")
-										.children('itemref')
-										.each(
-												function() {
-													epub.elementosOrden[epub.elementosOrden.length] = $(
-															this).attr('idref');
-												});
-
-								// Se lee el titulo y subtitulo
-								epub.titulo = $title[0].innerHTML;
-								if ($title[1]) {
-									epub.subtitulo = $title[1].innerHTML;
-								}
-							}
-						});
-
+// Se lee el orden de carga
+		$xml.find("spine")
+		.children('itemref')
+		.each(function() {
+					epub.elementosOrden[epub.elementosOrden.length] = $(
+							this).attr('idref');
+		});
+		epub.titulo = $title[0].innerHTML;
+		
 	} catch (e) {
 		alert(e);
 	}
@@ -164,9 +142,15 @@ function generarEpub(binario) {
 function cargarEpub(Epub) {
 	mostrarContenidoLibro();
 	var zip = new JSZip(Epub.ruta.target.result);
+	var contenidoLibro ="";
 	for (var i = 0; i < Epub.elementosOrden.length; i++) {
-		alert(Epub.elementos[Epub.elementosOrden[i]].id);
+		if(Epub.elementos[Epub.elementosOrden[i]].tipo != "application/xhtml+xml") continue;
+		xmlDoc = $.parseXML(zip.files[Epub.elementos[Epub.elementosOrden[i]].ruta].asText()),
+		$xml = $(xmlDoc).find("body");
+		contenidoLibro = contenidoLibro + $xml.text();//alert($xml);
 	}
+	
+	return contenidoLibro;
 
 }
 
