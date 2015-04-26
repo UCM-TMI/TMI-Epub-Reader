@@ -17,10 +17,12 @@
 	<div data-role="page">
 
 		<div data-role="header" data-position="fixed" data-tap-toggle="false">
-			<a href="#" id="nav_btn">Detalles</a>
-			<a href="#" class="botonAt" style="display:none;" >ATRAS</a>
+			<div  data-role="controlgroup" data-type="horizontal" class="ui-mini ui-btn-left">
+						<a href="#" id="nav_btn" class="ui-btn" >Detalles</a>
+						<a href="#" id="nav_btn" class="ui-btn botonAt" style="display:none" >Volver</a>
+			</div>
 				<span class="ui-title" >TMIEpub</span>
-			<a href="#" id="option_btn" data-icon="gear" >Opciones</a>
+			<a href="#" id="option_btn" data-icon="gear" class="ui-btn ui-btn-right" >Opciones</a>
 		</div>
 
 		<div data-role="panel" id="opciones" data-position="right"
@@ -43,7 +45,7 @@
 			<div id="notas" class="tabs" style="paddin: 5%; margin: 0;">
 				notas</div>
 
-			<div id="libro_contenido" class="tabs">ESTO ES UN LIBRO</div>
+			<div id="libro_contenido" class="tabs" style="padding-bottom: 30px">ESTO ES UN LIBRO</div>
 
 			<div id="libros" class="tabs" ><h3>Libros</h3>
 				<input type="file" id="file" name="file" webkitdirectory directory
@@ -56,13 +58,15 @@
 				<input type="file" id="file" name="file" multiple />
 					<div id="listadoMusicas">
 					</div>
-			</div>
-
-			<div id="audiooo" class="tabs"><h3>audioo</h3>
+				<div id="audiooo"><h3>audioo</h3>
 				<audio controls>
 					<source src="01-fly.mp3"  type="audio/mpeg"/>
 				</audio>
 			</div>
+					
+			</div>
+
+
 			<div id="contenido" class="tabs">
 				<p id="result">contenido</p>
 

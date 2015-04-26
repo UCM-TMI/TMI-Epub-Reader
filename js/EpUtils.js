@@ -147,7 +147,7 @@ function cargarEpub(Epub) {
 		if(Epub.elementos[Epub.elementosOrden[i]].tipo != "application/xhtml+xml") continue;
 		xmlDoc = $.parseXML(zip.files[Epub.elementos[Epub.elementosOrden[i]].ruta].asText()),
 		$xml = $(xmlDoc).find("body");
-		contenidoLibro = contenidoLibro + $xml.text();//alert($xml);
+		contenidoLibro = contenidoLibro + $xml.text() +"<br/><br/><br/>";//alert($xml);
 	}
 	
 	return contenidoLibro;

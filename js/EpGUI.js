@@ -48,8 +48,15 @@ $(function(){
 	 });
 	//$("#").panel( "toggle" );
 
-	
+	$(".botonAt").on("click", function(){
+		$(".tabs").hide();
+		$(this).hide();
+		$("#libro_contenido").hide();
+		$("#libros").show();
+	});
 });
+
+
 
 var mostrandoContenido = false;
 var mostrandoMusica = false;

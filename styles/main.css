@@ -35,6 +35,7 @@ body {
 	min-height: 100%;
 	padding: 10px;
 	text-align: center;
+	padding-bottom: 30px;
 }
 
 #musica {
@@ -56,6 +57,10 @@ body {
 
 #libro_contenido{
 	display:none;
+	padding: 20px;
+  padding-bottom: 30px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 #cuerpo {
@@ -65,4 +70,8 @@ body {
 
 .botonAt{
 	display:none;
+}
+
+p{
+    line-height: 200%;
 }
