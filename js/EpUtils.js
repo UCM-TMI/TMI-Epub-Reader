@@ -7,10 +7,15 @@ function Epub() {
 	this.archivo = "<Vacio>";
 	this.opf = "<Vacio>;"
 	this.coverPath = "<Vacio>;"
+	this.estilos = [];
+	this.imagenes = [];
 	this.relativePath = "";
 	this.elementos = {};
 	this.ano = "Desconocido";
 	this.idioma = "Desconocido";
+	this.capitulo = 0;
+	this.capituloActual = 0;
+	this.listaCapitulos = [];
 	this.elementosOrden = [];
 	this.crearItem = function(padre) {
 		var variable = this;
@@ -23,7 +28,7 @@ function Epub() {
 			width : "120px",
 			height : "170px"
 		})).click(function() {
-			$("#libro_contenido").html($("<p></p>").append(cargarEpub(variable)))
+			$("#libro_contenido").html($("<div></div>").append(cargarEpub(variable)))
 		}).appendTo(padre);
 	};
 	this.cargarCover = function() {
@@ -109,6 +114,8 @@ function generarEpub(binario) {
 		$xml = $(xmlDoc), $title = $xml.find("title");
 		epub.coverPath = $xml.find("meta[name='cover']").attr("content");
 
+		var contadorEstilos = 0;
+		var contadorImagenes = 0;
 		// Se cargan todos los elementos del Epub
 		$xml.find("manifest").children('item').each(
 				function() {
@@ -120,8 +127,21 @@ function generarEpub(binario) {
 							"media-type");
 					elem.id = $(this).attr("id");
 					epub.elementos[elem.id] = elem;
+					
+					if(elem.tipo == "text/css"){
+						epub.estilos[contadorEstilos] = elem.ruta;
+						contadorEstilos++;
+					}
+					
+					if(elem.tipo == "image/jpeg"){
+						epub.imagenes[contadorImagenes] = elem.ruta;
+						contadorImagenes++;
+					}
+					
 				});
-
+	
+		
+		
 // Se lee el orden de carga
 		$xml.find("spine")
 		.children('itemref')
@@ -143,14 +163,39 @@ function cargarEpub(Epub) {
 	mostrarContenidoLibro();
 	var zip = new JSZip(Epub.ruta.target.result);
 	var contenidoLibro ="";
+	
+	//Se carga el epub a los trancazos 
 	for (var i = 0; i < Epub.elementosOrden.length; i++) {
 		if(Epub.elementos[Epub.elementosOrden[i]].tipo != "application/xhtml+xml") continue;
 		xmlDoc = $.parseXML(zip.files[Epub.relativePath + Epub.elementos[Epub.elementosOrden[i]].ruta].asText()),
 		$xml = $(xmlDoc).find("body");
-		contenidoLibro = contenidoLibro + $xml.text() +"<br/><br/><br/>";//alert($xml);
+		Epub.listaCapitulos[i] = estructurarCapitulo($xml);
+	}
+	
+	// Se carga el estilo para ese epub
+	var estilo = $("<style id='123'></style>");
+	for(var i = 0; i< Epub.estilos.length ; i++){
+		estilo.append(document.createTextNode(zip.files[Epub.relativePath + Epub.estilos[i]].asText()));
+	}
+	$("head").append(estilo);
+	
+	contenidoLibro = Epub.listaCapitulos[Epub.capituloActual];
+	
+	// Se cargan las imagenes para ese capitulo
+	for(var i = 0; i< Epub.imagenes.length ; i++){
+		var htm = contenidoLibro.html();
+		contenidoLibro.html( htm.replace(Epub.imagenes[i],"data:image/png;base64,"
+				+ encode(zip.files[Epub.relativePath + Epub.imagenes[i]].asUint8Array()))
+				);
 	}
 	
 	return contenidoLibro;
 
 }
+
+function estructurarCapitulo(capXml){
+	return capXml;
+}
+
+
 

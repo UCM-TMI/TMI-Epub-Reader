@@ -65,8 +65,6 @@ function mostrarContenidoLibro(){
 	mostrandoContenido = true;
 	$(".tabs").hide();
 	$(".botonAt").show();
-	
-
 	$("#libro_contenido").toggle();
 	 
 }
