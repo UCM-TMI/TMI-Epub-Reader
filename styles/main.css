@@ -4,6 +4,7 @@ html {
 
 body {
 	min-height: 100%;
+	height: 100%;
 }
 
 .libroItem {
@@ -55,12 +56,12 @@ body {
 	display: none;
 }
 
-#libro_contenido{
-	display:none;
+#libro_contenido {
+	display: none;
 	padding: 20px;
-  padding-bottom: 30px;
-  text-align: justify;
-  text-justify: inter-word;
+	padding-bottom: 30px;
+	text-align: justify;
+	text-justify: inter-word;
 }
 
 #cuerpo {
@@ -68,10 +69,34 @@ body {
 	margin: 0;
 }
 
-.botonAt{
-	display:none;
+.botonAt {
+	display: none;
 }
 
-p{
-    line-height: 200%;
+#lib_cont_btn_next {
+	position:relative;
+	vertical-align:middle;
+	margin-left: 10px;
+	height: 300px;
+	width: 40px;
+	background-color: red;
+	float: left;
+}
+
+#lib_cont_btn_prev {
+	position:relative;
+	margin-right: 10px;
+	vertical-align:middle;
+	height: 300px;
+	width: 40px;
+	background-color: blue;
+	float: left;
+}
+
+#lib_cont{
+	float: left;
+}
+
+p {
+	line-height: 200%;
 }

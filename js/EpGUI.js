@@ -54,6 +54,13 @@ $(function(){
 		$("#libro_contenido").hide();
 		$("#libros").show();
 	});
+	
+	$("#lib_cont_btn_prev").on("click", function(){
+		atras();
+	});
+	$("#lib_cont_btn_next").on("click", function(){
+		siguiente();
+	});
 });
 
 

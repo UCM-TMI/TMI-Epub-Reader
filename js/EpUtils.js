@@ -28,7 +28,7 @@ function Epub() {
 			width : "120px",
 			height : "170px"
 		})).click(function() {
-			$("#libro_contenido").html($("<div></div>").append(cargarEpub(variable)))
+			$("#lib_cont").html($("<div></div>").append(cargarEpub(variable)))
 		}).appendTo(padre);
 	};
 	this.cargarCover = function() {
@@ -188,9 +188,21 @@ function cargarEpub(Epub) {
 				+ encode(zip.files[Epub.relativePath + Epub.imagenes[i]].asUint8Array()))
 				);
 	}
-	
-	return contenidoLibro;
+	core.epubActual = Epub.titulo;
+	return contenidoLibro[0].innerHTML;
 
+}
+
+function siguiente(){
+	var epub = core.listadoEpub[core.epubActual];
+	epub.capituloActual = epub.capituloActual +1;
+	$("#lib_cont").html($("<div></div>").append(cargarEpub(epub)));
+}
+
+function atras(){
+	var epub = core.listadoEpub[core.epubActual];
+	epub.capituloActual = epub.capituloActual -1;
+	$("#lib_cont").html($("<div></div>").append(cargarEpub(epub)));
 }
 
 function estructurarCapitulo(capXml){
