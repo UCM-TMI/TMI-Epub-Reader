@@ -54,14 +54,17 @@ body {
 #contenido {
 	background-color: blue;
 	display: none;
+	
 }
 
 #libro_contenido {
 	display: none;
-	padding: 20px;
+	background-color:#f7f1d8;
 	padding-bottom: 30px;
-	text-align: justify;
 	text-justify: inter-word;
+	-moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 100%;
 }
 
 #cuerpo {
@@ -74,27 +77,33 @@ body {
 }
 
 #lib_cont_btn_next {
-	position:relative;
+	 height: 100%;
+	position:fixed;
 	vertical-align:middle;
 	margin-left: 10px;
-	height: 300px;
-	width: 40px;
+	width: 7%;
+	right:0;
 	background-color: red;
-	float: left;
+	margin-bottom: 30px;
+	
 }
 
 #lib_cont_btn_prev {
-	position:relative;
+	 height: 100%;
+	position:fixed;
 	margin-right: 10px;
 	vertical-align:middle;
-	height: 300px;
-	width: 40px;
+	left:0;
+	width: 7%;
 	background-color: blue;
-	float: left;
+
 }
 
 #lib_cont{
-	float: left;
+	padding-top:20px;
+	 height: 100%;
+	padding-left: 10%;
+	padding-right: 10%;
 }
 
 p {
