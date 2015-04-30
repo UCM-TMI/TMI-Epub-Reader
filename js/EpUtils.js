@@ -183,10 +183,12 @@ function cargarEpub(Epub) {
 	
 	// Se cargan las imagenes para ese capitulo
 	for(var i = 0; i< Epub.imagenes.length ; i++){
-		var htm = contenidoLibro.html();
-		contenidoLibro.html( htm.replace(Epub.imagenes[i],"data:image/png;base64,"
-				+ encode(zip.files[Epub.relativePath + Epub.imagenes[i]].asUint8Array()))
-				);
+		$(contenidoLibro).find("img[src*='"+Epub.imagenes[i]+"']").attr("src","data:image;base64,"
+		+ encode(zip.files[Epub.relativePath + Epub.imagenes[i]].asUint8Array()));
+		
+		$(contenidoLibro).find("image[xlink\\:href*='"+Epub.imagenes[i]+"']").attr("xlink:href","data:image;base64,"
+				+ encode(zip.files[Epub.relativePath + Epub.imagenes[i]].asUint8Array()));
+
 	}
 	core.epubActual = Epub.titulo;
 	return contenidoLibro[0].innerHTML;
