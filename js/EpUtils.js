@@ -30,7 +30,7 @@ function Epub() {
 			height : "170px"
 		})).click(function() {
 			cargarEpub(variable);
-			$("#lib_cont").html($("<div></div>").append(cargarPagina(variable)))
+			$("#lib_cont").html($(cargarPagina(variable)));
 		}).appendTo(padre);
 	};
 	this.cargarCover = function() {
@@ -175,7 +175,7 @@ function cargarEpub(Epub) {
 	
 	
 	// Se carga el estilo para ese epub
-	var estilo = $("<style></style>");
+	var estilo = $("<style id='123'></style>");
 	for(var i = 0; i< Epub.estilos.length ; i++){
 		estilo.append(document.createTextNode(zip.files[Epub.relativePath + Epub.estilos[i]].asText()));
 	}
@@ -186,6 +186,11 @@ function cargarEpub(Epub) {
 
 
 function cargarPagina(Epub){
+	 var windowWidth = $(window).width(); //retrieve current window width
+	 var windowHeight = $(window).height();
+	 var lib_cont = $("#lib_cont").width();
+	 $("#auxLibro").css("width", lib_cont);
+	
 	contenidoLibro = Epub.listaCapitulos[Epub.capituloActual];
 	
 	if(Epub.paginaActual < 0){
@@ -205,13 +210,47 @@ function cargarPagina(Epub){
 	// Se cargan las imagenes para ese capitulo
 	for(var i = 0; i< Epub.imagenes.length ; i++){
 		$(contenidoLibro).find("img[src*='"+Epub.imagenes[i]+"']").attr("src","data:image;base64,"
-		+ encode(zip.files[Epub.relativePath + Epub.imagenes[i]].asUint8Array())).attr("style","width:400px");
+		+ encode(zip.files[Epub.relativePath + Epub.imagenes[i]].asUint8Array())).attr("style","max-width: 60%; max-height: 60%;");
 		
 		$(contenidoLibro).find("image[xlink\\:href*='"+Epub.imagenes[i]+"']").attr("xlink:href","data:image;base64,"
-				+ encode(zip.files[Epub.relativePath + Epub.imagenes[i]].asUint8Array())).attr("style","width:400px");
+				+ encode(zip.files[Epub.relativePath + Epub.imagenes[i]].asUint8Array())).attr("style","max-width: 60%; max-height: 60%;");
 
 	}
-	return $(contenidoLibro).children()[Epub.paginaActual].innerHTML;
+	var maxElements =0;
+	$("#auxLibro").empty();
+	for(var i =Epub.paginaActual ; i< $(contenidoLibro).children().length; i++){
+		$("#auxLibro").append($(contenidoLibro).children()[i].outerHTML);
+		if($("#auxLibro").height() > windowHeight){
+			break;
+		}
+		maxElements++;
+	}
+	$("#auxLibro").children(":last").remove();
+	var valor = "";
+	
+	for(var i =Epub.paginaActual ; i< Epub.paginaActual+maxElements; i++){
+		valor = valor + $(contenidoLibro).children()[i].outerHTML;
+		i++;
+	}
+	if(Epub.paginaActual != maxElements-1){
+		var words = $(contenidoLibro).children()[Epub.paginaActual+maxElements].innerText.split(" ");
+		var palabras = 0;
+		for (var i = 0; i < words.length - 1; i++) {
+			if($("#auxLibro").height() < windowHeight){
+				words[i] += " ";
+				$("#auxLibro").append(words[i]);
+			}
+			palabras++;
+		}
+		
+		for(var i =Epub.paginaActual ; i< palabras; i++){
+			valor = valor + words[i];
+			i++;
+		}
+	}
+	Epub.paginaActual = Epub.paginaActual+maxElements-1;
+	
+	return valor;
 }
 
 function siguiente(){

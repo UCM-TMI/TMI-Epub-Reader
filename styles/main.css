@@ -109,3 +109,10 @@ body {
 p {
 	line-height: 200%;
 }
+
+#auxLibro {
+    position: fixed;
+    width: 100px;
+    right: -9999px;
+    top: -9999px;
+}
