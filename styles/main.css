@@ -5,6 +5,8 @@ html {
 body {
 	min-height: 100%;
 	height: 100%;
+
+    overflow: hidden;
 }
 
 .libroItem {
@@ -59,12 +61,11 @@ body {
 
 #libro_contenido {
 	display: none;
-	background-color:#f7f1d8;
-	padding-bottom: 30px;
-	text-justify: inter-word;
-	-moz-box-sizing: border-box;
-    box-sizing: border-box;
-    height: 100%;
+	 position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+
 }
 
 #cuerpo {
@@ -74,6 +75,10 @@ body {
 
 .botonAt {
 	display: none;
+}
+
+#container{
+	display:none;
 }
 
 #lib_cont_btn_next {

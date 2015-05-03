@@ -53,14 +53,15 @@ $(function(){
 		$(this).hide();
 		$("#libro_contenido").hide();
 		$("#libros").show();
-	});
+	})
 	
-	$("#lib_cont_btn_prev").on("click", function(){
-		atras();
-	});
-	$("#lib_cont_btn_next").on("click", function(){
-		siguiente();
-	});
+	 $("#prev").on('click',function(){
+		 core.epubBook.prevPage();
+     });
+
+     $("#next").on('click',function(){
+    	 core.epubBook.nextPage();
+     });
 });
 
 
@@ -70,6 +71,7 @@ var mostrandoMusica = false;
 
 function mostrarContenidoLibro(){
 	mostrandoContenido = true;
+	$("#area").empty();
 	$(".tabs").hide();
 	$(".botonAt").show();
 	$("#libro_contenido").toggle();
