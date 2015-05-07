@@ -22,6 +22,7 @@ $(function(){
 		
 		
 	});
+	
 	$("#musica_btn").on("click", function(){
 
 		if(mostrandoMusica){
@@ -40,12 +41,21 @@ $(function(){
 		$("#notas").toggle();	
 	});
 	
-	 $("#file").on("change", function(evt) {
-		   var files = evt.target.files;
-		    for (var i = 0, f; f = files[i]; i++) {
-		    	core.agregarEpub(f);
-		    }
-	 });
+	$("#file").on("change", function(evt) {
+	   var files = evt.target.files;
+	    for (var i = 0, f; f = files[i]; i++) {
+	    	core.agregarEpub(f);
+	    }
+	});
+
+	$("#musicas").on("change", function(evt) {
+	   var files = evt.target.files;
+	    for (var i = 0, f; f = files[i]; i++) {
+	    	core.agregarMusica(f);
+	    }
+	});
+	
+
 	//$("#").panel( "toggle" );
 
 	$(".botonAt").on("click", function(){
