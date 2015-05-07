@@ -12,5 +12,8 @@ var core = {
 	},
 	tamanoLetra : 1,
 	tipoLetra : "Times New Roman",
+	agregarMusica : function(f,ruta) {
+		cargarAudio(f,ruta);
+	}
 }
 

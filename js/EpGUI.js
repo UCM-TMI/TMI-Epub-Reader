@@ -81,6 +81,13 @@ $(function(){
     	 core.tipoLetra = $(this).val();
      });
    
+   	$("#musicas").on("change", function(evt) {
+	   var files = evt.target.files;
+	    for (var i = 0, f; f = files[i]; i++) {
+	    	core.agregarMusica(f);
+	    }
+	});
+	
 });
 
 
