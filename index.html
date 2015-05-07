@@ -8,12 +8,16 @@
 <script src="jquery-1.11.2.min.js"></script>
 <script src="jquery.mobile-1.4.5.min.js"></script>
 <script src="reader/libs/zip.min.js"></script>
+<script src="moment/moment.min.js"></script>
+<script src="id3-reader/id3-minimized.js"></script>
+
 <script type="text/javascript" src="js/base64.js"></script>
 <script src="js/jszip.min.js"></script>
 <script src="js/zip.js"></script>
 <script src="js/EpCore.js"></script>
 <script src="js/EpUtils.js"></script>
 <script src="js/EpGUI.js"></script>
+<script src="js/EpMp3Utils.js"></script>
 <script src="reader/libs/zip.min.js"></script>
 <script src="reader/epub.js"></script>
 
@@ -105,9 +109,9 @@
 				notas</div>
 
 			<div id="libro_contenido"  class="tabs" >
-				   <div id="prev" class="arrow">‹</div>
-    				<div id="area"></div>
-    				<div id="next" class="arrow">›</div>
+				   //<div id="prev" class="arrow">‹</div>
+    				//<div id="area"></div>
+    				//<div id="next" class="arrow">›</div>
 			</div>
 			
 			<div id="libros" class="tabs" ><h3>Libros</h3>
@@ -118,11 +122,10 @@
 			</div>
 
 			<div id="musica" class="tabs"><h3>musica</h3>
-				<input type="file" id="file" name="file" multiple />
-					<div id="listadoMusicas">
-					</div>
-				<div id="audiooo"><h3>audioo</h3>
+				<input type="file" id="musicas" name="musicas[]" multiple />
+				<output id="listaMP3"></output>
 				<audio controls>
+					<div id="listadoAudios">
 					<source src="01-fly.mp3"  type="audio/mpeg"/>
 				</audio>
 			</div>

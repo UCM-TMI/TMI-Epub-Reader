@@ -9,6 +9,9 @@ var core = {
 	},
 	mostrarLibro : function(){
 		mostrarContenidoLibro();
+	},
+	agregarMusica : function(f,ruta) {
+		cargarAudio(f,ruta);
 	}
 }
 
