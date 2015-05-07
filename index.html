@@ -87,7 +87,20 @@
 		<div data-role="panel" id="opciones" data-position="right"
 			data-display="push">
 			<!-- panel content goes here -->
-			<h1>menu de opciones</h1>
+			<h3>menu de opciones</h3>
+			
+			<div>
+			<label>Tamaño de letra</label>
+			<input type="range" name="slider-fill" id="slider-fill" value="1" min="0.2" max="5" data-highlight="true" step="0.2"/>
+			</div>
+			<label>Tipo de letra</label>
+			<select id="tipo-letra">
+			<option value="Sans-serif">sans-serif</option>
+			<option value="Fantasy">fantasy</option>
+			<option value="Monospace">monospace</option>
+			<option value="Arial">Arial</option>
+			<option value="Times New Roman">Times new roman</option>
+			</select>
 		</div>
 		<!-- /panel -->
 

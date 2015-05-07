@@ -9,6 +9,8 @@ var core = {
 	},
 	mostrarLibro : function(){
 		mostrarContenidoLibro();
-	}
+	},
+	tamanoLetra : 1,
+	tipoLetra : "Times New Roman",
 }
 

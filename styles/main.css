@@ -104,6 +104,11 @@ body {
 
 }
 
+.ui-slider-track{
+	width:70%;
+	margin-left:30%;
+}
+
 #lib_cont{
 	padding-top:20px;
 	 height: 100%;

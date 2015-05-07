@@ -57,11 +57,30 @@ $(function(){
 	
 	 $("#prev").on('click',function(){
 		 core.epubBook.prevPage();
-     });
+		 setTimeout(function(){$($(window.frames[0].document).find("html")).css( "font-size",core.tamanoLetra +"em")},20);
+		 setTimeout(function(){$($(window.frames[0].document).find("html")).css( "font-family",core.tipoLetra )},20);
+	 });
 
      $("#next").on('click',function(){
     	 core.epubBook.nextPage();
+    	 setTimeout(function(){$($(window.frames[0].document).find("html")).css( "font-size",core.tamanoLetra +"em")},20);
+    	 setTimeout(function(){$($(window.frames[0].document).find("html")).css( "font-family",core.tipoLetra )},20);
      });
+     
+     // Slider Epub
+     
+     $('#slider-fill').slider({ mini: true });
+     
+     $( "#slider-fill" ).bind( "change", function(event, ui) {
+    	 $($(window.frames[0].document).find("html")).css( "font-size",$(this).val() +"em");
+    	 core.tamanoLetra = $(this).val();
+     });
+     
+     $( "#tipo-letra" ).bind( "change", function(event, ui) {
+    	 $($(window.frames[0].document).find("html")).css( "font-family",$(this).val());
+    	 core.tipoLetra = $(this).val();
+     });
+   
 });
 
 
