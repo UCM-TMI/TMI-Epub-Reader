@@ -5763,7 +5763,7 @@ EPUBJS.Render.Iframe = function() {
 //-- Build up any html needed
 EPUBJS.Render.Iframe.prototype.create = function(){
 	this.iframe = document.createElement('iframe');
-	this.iframe.id = "epubjs-iframe:" + EPUBJS.core.uuid();
+	this.iframe.id = "epubjs-iframe";// + EPUBJS.core.uuid();
 	this.iframe.scrolling = "no";
 	this.iframe.seamless = "seamless";
 	// Back up if seamless isn't supported

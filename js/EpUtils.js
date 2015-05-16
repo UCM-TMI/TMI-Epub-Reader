@@ -11,6 +11,7 @@ function Epub() {
 	this.relativePath = "";
 	this.elementos = {};
 	this.ano = "Desconocido";
+	this.notas = {};
 	this.idioma = "Desconocido";
 	this.capitulo = 0;
 	this.capituloActual = 0;
@@ -28,6 +29,7 @@ function Epub() {
 			width : "120px",
 			height : "170px"
 		})).click(function() {
+			core.epubActual = variable.titulo;
 			mostrarContenidoLibro();
 			core.epubBook = ePub(variable.archivo);
 			core.epubBook.renderTo("area");
@@ -266,5 +268,20 @@ function estructurarCapitulo(capXml){
 	return capXml;
 }
 
+function descartarNota(){
+	$("#notaText").val("");
+	$("#notaText").toggle();
+	$("#idNotaCrear").toggle();
+	$("#idNotaCancelar").toggle();
+}
+
+function agregarNota(){
+	var nota = $("#notaText").val();
+	core.listadoEpub[core.epubActual].notas[core.idNotaActual] = nota;
+	$("#notaText").val("");
+	$("#notaText").toggle();
+	$("#idNotaCrear").toggle();
+	$("#idNotaCancelar").toggle();
+}
 
 

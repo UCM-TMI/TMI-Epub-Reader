@@ -2,6 +2,8 @@ var core = {
 	listadoRutas : {},
 	listadoEpub : {},
 	listadoMp3 : {},
+	listadoNotas :{},
+	idNotaActual : "",
 	epubActual : "",
 	epubBook : "",
 	agregarEpub : function(f,ruta) {
