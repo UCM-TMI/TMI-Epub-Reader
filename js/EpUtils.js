@@ -12,6 +12,7 @@ function Epub() {
 	this.elementos = {};
 	this.ano = "Desconocido";
 	this.notas = {};
+	this.notaColor = {};
 	this.idioma = "Desconocido";
 	this.capitulo = 0;
 	this.capituloActual = 0;
@@ -278,10 +279,23 @@ function descartarNota(){
 function agregarNota(){
 	var nota = $("#notaText").val();
 	core.listadoEpub[core.epubActual].notas[core.idNotaActual] = nota;
+	core.listadoEpub[core.epubActual].notaColor[core.idNotaActual] =Math.floor(Math.random()*16777215).toString(16);
 	$("#notaText").val("");
 	$("#notaText").toggle();
 	$("#idNotaCrear").toggle();
 	$("#idNotaCancelar").toggle();
+	
+	$.each(core.listadoEpub[core.epubActual].notas, function(i, val) {
+		var clave = i;
+		var valor = val;
+		var color = core.listadoEpub[core.epubActual].notaColor[clave];
+		$("#epubjs-iframe").contents().find(":contains('"+clave+"')").html(function(i, v) {
+			var reg =  new RegExp(clave,"g");
+	        return v.replace(reg,"<span style='background-color:#"+color+"' title='"+valor+"' >"+clave+"</span>");    
+		});
+		
+	});
+	
 }
 
 

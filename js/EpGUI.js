@@ -72,13 +72,15 @@ $(function() {
 					$($(window.frames[0].document).find("html")).css(
 							"font-family", core.tipoLetra)
 				}, 20);
-				jQuery.each(core.listadoEpub[core.epubActual].notas, function(i, val) {
+				$.each(core.listadoEpub[core.epubActual].notas, function(i, val) {
 					var clave = i;
 					var valor = val;
-					$(':not(:has(*))').html(function(i, v) {
-						var reg = "/"+clave+"/g"
-					    return v.replace(reg,valor);    
+					var color = core.listadoEpub[core.epubActual].notaColor[clave];
+					$("#epubjs-iframe").contents().find(":contains('"+clave+"')").html(function(i, v) {
+						var reg =  new RegExp(clave,"g");
+				        return v.replace(reg,"<span style='background-color:#"+color+"' title='"+valor+"' >"+clave+"</span>");    
 					});
+					
 				});
 				
 				
@@ -97,14 +99,17 @@ $(function() {
 							"font-family", core.tipoLetra)
 				}, 20);
 				
-				jQuery.each(core.listadoEpub[core.epubActual].notas, function(i, val) {
+				$.each(core.listadoEpub[core.epubActual].notas, function(i, val) {
 					var clave = i;
 					var valor = val;
-					$(':not(:has(*))').html(function(i, v) {
-						var reg = "/"+clave+"/g"
-					    return v.replace(reg,valor);    
+					var color = core.listadoEpub[core.epubActual].notaColor[clave];
+					$("#epubjs-iframe").contents().find(":contains('"+clave+"')").html(function(i, v) {
+						var reg =  new RegExp(clave,"g");
+				        return v.replace(reg,"<span style='background-color:#"+color+"' title='"+valor+"' >"+clave+"</span>");    
 					});
+					
 				});
+				
 				
 			});
 
