@@ -298,4 +298,52 @@ function agregarNota(){
 	
 }
 
+function mostrarNotas(){
+	var notasContainer = $("#notasContainers");
+	notasContainer.empty();	
+	
+	if(core.epubActual == ""){
+		
+		var item = $('<li class="nota_item_no_book"></li>');
+		//$("<div class='nota_id'></div>").text(i).appendTo(item);
+		$("<a href='#'></a>").text("No has seleccionado ningun libro").appendTo(item);
+		notasContainer.append(item);
+		notasContainer.listview('refresh');
+		return false;
+	}
+	
+	
+	var notas = core.listadoEpub[core.epubActual].notas;
+	
+	$.each(core.listadoEpub[core.epubActual].notas, function(i, val) {
+		var item = $('<li class="nota_item"></li>');
+		$("<a href='#'></a>").text(i + " : " + val ).appendTo(item);
+		var dleteBtn = $("<a href='#' class='delNota' data-icon='delete' data-notaValue='"+i+"' ></a>");
+		dleteBtn.appendTo(item);
+		
+		dleteBtn.on("click",function(){
+			delete core.listadoEpub[core.epubActual].notas[i];
+			mostrarNotas();
+		});
+		
+		notasContainer.append(item);
+		notasContainer.listview('refresh');
+	});
+	
+	
+	if(Object.keys(notas).length == 0){
+		var item = $('<li class="nota_item_no_book"></li>');
+		//$("<div class='nota_id'></div>").text(i).appendTo(item);
+		$("<a href='#'></a>").text("Para este libro no tienes ninguna nota").appendTo(item);
+		//$("<div class='nota_item_no_book'></div>").text("Para este libro no tienes ninguna nota").appendTo(item);
+		notasContainer.append(item);
+		notasContainer.listview('refresh');
+		return false;
+	}
+	
+	
+	
+	
+}
+
 
