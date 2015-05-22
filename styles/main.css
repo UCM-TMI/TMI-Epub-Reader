@@ -50,7 +50,6 @@ body {
 
 #notas {
 	overflow: hidden;
-	background-color: green;
 	display: none;
 }
 
@@ -69,6 +68,11 @@ body {
       height: 100%;
       background-color: white;
 
+}
+
+.nota_item_no_book{
+	padding-top: 30%;
+	text-align: center;
 }
 
 #cuerpo {
