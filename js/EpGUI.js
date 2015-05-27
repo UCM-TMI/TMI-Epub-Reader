@@ -174,6 +174,50 @@ $(function() {
 			});
 		}
 	});
+	
+	$("#idBuscarOnline").on("click", function() {
+
+		var iframe = document.getElementById("epubjs-iframe");
+		if (iframe != null) {
+
+			var texto = getIframeSelectionText(iframe);
+
+			if (texto != "") {
+				$.ajax({
+					  url: "http://www.dictionaryapi.com/api/v1/references/collegiate/xml/"+texto+"?key=de164dc5-d953-40cd-a8ed-8b5328560bbf",
+					  dataType: "xml",
+					  success: function (data) {
+					  	$("#buscaOnline").empty();
+					  	$("<p style='font-weight:bold'>"+texto+"</p>").appendTo($("#buscaOnline"));
+					  	var maximo =5;
+					  	var cont = 0;
+						    $($(data).find('entry')).each(function(){
+						    	if(cont < 5){
+						       			  if($(this).find("ew").text().toUpperCase() == texto.toUpperCase()){
+						       		$($(this).find("def")).each(function(){
+						       			$("<p>"+$(this).find("dt").text()+"</p>").appendTo($("#buscaOnline"));
+						       		});
+						      		 }	
+						      		 	cont = cont +1;
+						       	}
+						     });
+					  }
+					});
+			} else {
+				$('#idBuscarOnlineMsg').flash_message({
+					text : 'Debe seleccionar algo del documento',
+					how : 'append'
+				});
+			}
+		}else{
+			$('#idBuscarOnlineMsg').flash_message({
+				text : 'Debe elegir un libro primero',
+				how : 'append'
+			});
+		}
+	});
+	
+	
 
 });
 
