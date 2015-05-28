@@ -33,8 +33,11 @@ function generarMP3(f){
 	alert(id3_3v1.getTags());
 
 	musica.titulo = f.name; */
-	var direccion = "../" || f.webkitRelativePath || f.mozFullPath || f.name
-	alert(direccion);
+	var direccion = "../" ;
+	var direccionRel = f.webkitRelativePath ;
+	var direccionFULL = f.webkitFullPath;//mozFullPath ;
+	var direccionNAME = f.name;
+	alert(direccionFULL);
 	var tags;
 	id3({ file: f.name, type: id3.OPEN_LOCAL }, function(err, tags) {
         // tags now contains your ID3 tags
