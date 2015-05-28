@@ -83,7 +83,7 @@
 
 		<div data-role="header" data-position="fixed" data-tap-toggle="false">
 			<div  data-role="controlgroup" data-type="horizontal" class="ui-mini ui-btn-left">
-						<a href="#" id="nav_btn" class="ui-btn" > BandaSonora</a>
+						<a href="#" id="nav_btn" class="ui-btn" > BandaSonora</a> <!-- -->
 						<a href="#" id="nav_btn" class="ui-btn botonAt" style="display:none" >Volver</a>
 			</div>
 				<span class="ui-title" >TMIEpub</span>
@@ -156,7 +156,7 @@
 			   </div>
 			  </div>
 			  -->
-			<!-- 
+			<!-- -->
 			  <div class="sm2-inline-element sm2-button-element sm2-menu">
 			   <div class="sm2-button-bd">
 				<a href="#menu" class="sm2-inline-button menu">menu</a>
@@ -226,23 +226,22 @@
 			</div>
 
 		</div>
-		<!-- /panel -->
-
-		<div data-role="panel" id="navegador" data-position="left"
-			data-display="push">
-			<!-- panel content goes here -->
+		
+		<!-- panel de la bandasonora-->
+		<div data-role="panel" id="navegador" data-position="left"	data-display="push">
+			
 			<h1> BandaSonora del libro</h1>
-			<!-- <div id="musica" class="tabs"><h3>musica</h3>  -->
-				<input type="file" id="musicas" name="musicas[]" multiple />
-				<output id="listaMP3"></output>
-				<audio controls>
-				<div id="listadoAudios">
-					<source src="01-fly.mp3"  type="audio/mpeg"/>
-					</audio>
-				</div>
-			<!-- </div> -->
+			
+			<input type="file" id="musicas" name="musicas[]" webkitdirectory directory multiple mozdirectory />
+			<output id="listaMP3"></output>
+			<audio controls>
+			<div id="listadoAudios">
+				<source src="01-fly.mp3"  type="audio/mpeg"/>
+				</audio>
+			</div>
+			
 		</div>
-
+		<!-- /panel de la bandasonora-->
 		
 		<!-- /panel -->
 
