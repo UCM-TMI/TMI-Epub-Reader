@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playlist xmlns="http://xspf.org/ns/0/" xmlns:vlc="http://www.videolan.org/vlc/playlist/ns/0/" version="1">
+	<title>Lista de reproducción</title>
+	<trackList>
+		<track>
+			<location>zip:///C:/Users/CarlosGabriel/Music/DirectGroupees/Akara_?2d_Akara_?2d_The_World_Beyond.zip!/Akara ?2d Akara ?2d The World Beyond/01 ?2d Unlocking the Portal.mp3</location>
+			<title>01 - Unlocking the Portal.mp3</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>0</vlc:id>
+				<vlc:option>recursive=collapse</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>zip:///C:/Users/CarlosGabriel/Music/DirectGroupees/Akara_?2d_Akara_?2d_The_World_Beyond.zip!/Akara ?2d Akara ?2d The World Beyond/02 ?2d The Crystal Palace.mp3</location>
+			<title>02 - The Crystal Palace.mp3</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>1</vlc:id>
+				<vlc:option>recursive=collapse</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>zip:///C:/Users/CarlosGabriel/Music/DirectGroupees/Akara_?2d_Akara_?2d_The_World_Beyond.zip!/Akara ?2d Akara ?2d The World Beyond/03 ?2d Adoration of the Light.mp3</location>
+			<title>03 - Adoration of the Light.mp3</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>2</vlc:id>
+				<vlc:option>recursive=collapse</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>zip:///C:/Users/CarlosGabriel/Music/DirectGroupees/Akara_?2d_Akara_?2d_The_World_Beyond.zip!/Akara ?2d Akara ?2d The World Beyond/04 ?2d Resonance.mp3</location>
+			<title>04 - Resonance.mp3</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>3</vlc:id>
+				<vlc:option>recursive=collapse</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>zip:///C:/Users/CarlosGabriel/Music/DirectGroupees/Akara_?2d_Akara_?2d_The_World_Beyond.zip!/Akara ?2d Akara ?2d The World Beyond/05 ?2d Evensong.mp3</location>
+			<title>05 - Evensong.mp3</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>4</vlc:id>
+				<vlc:option>recursive=collapse</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>zip:///C:/Users/CarlosGabriel/Music/DirectGroupees/Akara_?2d_Akara_?2d_The_World_Beyond.zip!/Akara ?2d Akara ?2d The World Beyond/06 ?2d Sky Dancer.mp3</location>
+			<title>06 - Sky Dancer.mp3</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>5</vlc:id>
+				<vlc:option>recursive=collapse</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>zip:///C:/Users/CarlosGabriel/Music/DirectGroupees/Akara_?2d_Akara_?2d_The_World_Beyond.zip!/Akara ?2d Akara ?2d The World Beyond/07 ?2d Remembering the Stars into Being.mp3</location>
+			<title>07 - Remembering the Stars into Being.mp3</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>6</vlc:id>
+				<vlc:option>recursive=collapse</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>zip:///C:/Users/CarlosGabriel/Music/DirectGroupees/Akara_?2d_Akara_?2d_The_World_Beyond.zip!/Akara ?2d Akara ?2d The World Beyond/08 ?2d The Royal Antechamber.mp3</location>
+			<title>08 - The Royal Antechamber.mp3</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>7</vlc:id>
+				<vlc:option>recursive=collapse</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>zip:///C:/Users/CarlosGabriel/Music/DirectGroupees/Akara_?2d_Akara_?2d_The_World_Beyond.zip!/Akara ?2d Akara ?2d The World Beyond/09 ?2d The Enchanted Island.mp3</location>
+			<title>09 - The Enchanted Island.mp3</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>8</vlc:id>
+				<vlc:option>recursive=collapse</vlc:option>
+			</extension>
+		</track>
+	</trackList>
+	<extension application="http://www.videolan.org/vlc/playlist/0">
+			<vlc:item tid="0"/>
+			<vlc:item tid="1"/>
+			<vlc:item tid="2"/>
+			<vlc:item tid="3"/>
+			<vlc:item tid="4"/>
+			<vlc:item tid="5"/>
+			<vlc:item tid="6"/>
+			<vlc:item tid="7"/>
+			<vlc:item tid="8"/>
+	</extension>
+</playlist>
